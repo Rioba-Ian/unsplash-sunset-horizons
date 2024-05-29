@@ -1,3 +1,7 @@
 export default function Home() {
-  return <section className=""></section>;
+  return (
+    <section className="">
+      <h1>Sunsets and Sunrises....</h1>
+    </section>
+  );
 }
