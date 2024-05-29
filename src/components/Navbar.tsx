@@ -13,7 +13,7 @@ export default function Navbar() {
   const { isSignedIn, user } = useUser();
   const { signOut } = useClerk();
   return (
-    <nav className="border-b h-8 flex items-center">
+    <nav className="border-b p-6 flex items-center">
       <div className="container flex items-center justify-between">
         <Link href="/">
           <h1 className="font-bold text-3xl lg:text-5xl ">Horizons</h1>
