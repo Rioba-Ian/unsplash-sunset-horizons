@@ -8,6 +8,7 @@ import {
   useClerk,
   useUser,
 } from "@clerk/nextjs";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const { isSignedIn, user } = useUser();
@@ -23,12 +24,16 @@ export default function Navbar() {
       <div className="flex items-center gap-x-5">
         {isSignedIn ? (
           <>
-            <SignOutButton />
+            <Button>
+              <SignOutButton />
+            </Button>
             <UserButton />
           </>
         ) : (
           <div className="flex items-center">
-            <SignInButton />
+            <Button>
+              <SignInButton />
+            </Button>
           </div>
         )}
       </div>
