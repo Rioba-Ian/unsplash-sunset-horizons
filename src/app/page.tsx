@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-[1440px] m-auto">
+    <main className="">
       <section className="">
         <h1>Sunsets and Sunrises....</h1>
       </section>
