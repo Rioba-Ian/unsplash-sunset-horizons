@@ -20,11 +20,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <Navbar />
           <div
             id="body-container"
-            className="min-h-screen max-w-[1440px] m-auto"
+            className="m-auto my-4 min-h-screen w-4/5 max-w-[1440px] bg-background text-accent-foreground"
           >
-            <Navbar />
             {children}
           </div>
         </body>

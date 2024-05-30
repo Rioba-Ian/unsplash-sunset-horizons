@@ -16,35 +16,37 @@ export default function Navbar() {
   const { isSignedIn, user } = useUser();
   const { signOut } = useClerk();
   return (
-    <nav className="flex items-center border-b p-6">
-      <div className="container flex items-center justify-between">
-        <Link href="/">
-          <Image
-            src={LogoImage}
-            height={48}
-            width={48}
-            alt="logo unsplash horizons."
-            className="rounded-md mix-blend-multiply"
-          />
-        </Link>
-      </div>
+    <header className="shadow-sm">
+      <nav className="m-auto flex  w-full max-w-[1440px] items-center p-4">
+        <div className="container flex items-center justify-between">
+          <Link href="/">
+            <Image
+              src={LogoImage}
+              height={48}
+              width={48}
+              alt="logo unsplash horizons."
+              className="rounded-md mix-blend-multiply"
+            />
+          </Link>
+        </div>
 
-      <div className="flex items-center gap-x-5">
-        {isSignedIn ? (
-          <>
-            <Button asChild>
-              <SignOutButton />
-            </Button>
-            <UserButton />
-          </>
-        ) : (
-          <div className="flex items-center">
-            <Button asChild>
-              <SignInButton />
-            </Button>
-          </div>
-        )}
-      </div>
-    </nav>
+        <div className="flex items-center gap-x-5">
+          {isSignedIn ? (
+            <>
+              <Button asChild>
+                <SignOutButton />
+              </Button>
+              <UserButton />
+            </>
+          ) : (
+            <div className="flex items-center">
+              <Button asChild>
+                <SignInButton />
+              </Button>
+            </div>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 }

@@ -1,4 +1,4 @@
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -19,8 +19,9 @@ export const images = pgTable("images", {
     .notNull()
     .references(() => users.id),
   createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at", { mode: "date" })
+  updatedAt: timestamp("updated_at")
     .notNull()
+    .default(sql`CURRENT_TIMESTAMP`)
     .$onUpdate(() => new Date()),
 });
 
