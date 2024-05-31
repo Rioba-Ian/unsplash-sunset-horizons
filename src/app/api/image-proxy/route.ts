@@ -6,6 +6,8 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const src = searchParams.get("src");
 
+  console.log("Image optimizer.");
+
   if (!src) {
     return new NextResponse("Missing src parameter", { status: 400 });
   }
@@ -17,12 +19,16 @@ export async function GET(req: NextRequest) {
       throw new Error("Failed to fetch image");
     }
 
+    console.log("Image optimizer. Got the image.");
+
     const buffer = await response.arrayBuffer();
     const contentType = response.headers.get("Content-Type");
 
     if (!contentType) {
       throw new Error("Missing content type");
     }
+
+    console.log("Image optimizer. Finished.");
 
     return new NextResponse(buffer, {
       headers: {
