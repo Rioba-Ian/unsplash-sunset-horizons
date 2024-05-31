@@ -42,7 +42,8 @@ export default function ImgContainer({
         loader={customLoader}
         placeholder="blur"
         blurDataURL={blurredDataUrl}
-        sizes="(min-width: 2020px) 278px, (min-width: 1640px) calc(6.94vw + 139px), (min-width: 1300px) 20vw, (min-width: 980px) 26.67vw, (min-width: 660px) 40vw, (min-width: 380px) calc(80vw - 16px), calc(36.67vw + 140px)"
+        sizes="300px"
+        // sizes="(min-width: 2020px) 278px, (min-width: 1640px) calc(6.94vw + 139px), (min-width: 1300px) 20vw, (min-width: 980px) 26.67vw, (min-width: 660px) 40vw, (min-width: 380px) calc(80vw - 16px), calc(36.67vw + 140px)"
         className="object-cover group-hover:opacity-75"
       />
     </div>
