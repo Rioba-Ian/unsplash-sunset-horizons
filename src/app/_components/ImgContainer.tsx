@@ -30,8 +30,6 @@ export default function ImgContainer({
 
   const photoSpans = Math.ceil(galleryHeight / 12) + 1;
 
-  console.log(widthHeightRatio);
-
   return (
     <div
       className="group relative w-[300px] justify-self-center overflow-hidden rounded-xl bg-gray-200"
