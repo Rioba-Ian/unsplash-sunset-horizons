@@ -2,6 +2,9 @@
   "name": "unsplash-horizons",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "child_process": false
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,14 +18,19 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "drizzle-orm": "^0.30.10",
+    "drizzle-zod": "^0.5.1",
     "lucide-react": "^0.379.0",
     "next": "14.2.3",
+    "optional": "^0.1.4",
     "pg": "^8.11.5",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.4",
     "svix": "^1.24.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

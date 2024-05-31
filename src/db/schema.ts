@@ -1,5 +1,7 @@
-import { relations, sql } from "drizzle-orm";
+import { InferModelFromColumns, relations, sql } from "drizzle-orm";
 import { integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { z } from "zod";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -32,3 +34,7 @@ export const imagesRelations = relations(images, ({ one }) => ({
 export const usersRelations = relations(users, ({ many }) => ({
   images: many(images),
 }));
+
+export const insertImagesSchema = createInsertSchema(images);
+
+export const selectImagesSchema = createSelectSchema(images);
