@@ -25,6 +25,8 @@ export default async function Gallery() {
           title={image.title}
           key={image.id}
           blurredDataUrl={image.blurredDataUrl}
+          height={image.height}
+          width={image.width}
         />
       ))}
     </section>

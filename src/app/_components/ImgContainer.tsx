@@ -13,20 +13,30 @@ type ImgContainerProps = {
   image_url: string;
   title: string;
   blurredDataUrl?: string;
+  height?: number;
+  width?: number;
 };
 
 export default function ImgContainer({
   image_url,
   title,
   blurredDataUrl,
+  width = 1,
+  height = 1,
 }: ImgContainerProps) {
-  const [imgDimensions, setImgDimensions] = useState<{
-    height: Number;
-    width: number;
-  } | null>(null);
+  const widthHeightRatio = height / width;
+
+  const galleryHeight = Math.ceil(300 * widthHeightRatio);
+
+  const photoSpans = Math.ceil(galleryHeight / 12) + 1;
+
+  console.log(widthHeightRatio);
 
   return (
-    <div className="group relative h-64 overflow-hidden rounded-xl bg-gray-200">
+    <div
+      className="group relative w-[300px] justify-self-center overflow-hidden rounded-xl bg-gray-200"
+      style={{ gridRow: `span ${photoSpans}` }}
+    >
       <Image
         src={image_url}
         fill={true}

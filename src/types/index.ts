@@ -21,4 +21,6 @@ export type TImages = z.infer<typeof selectImagesSchema>;
 
 export interface ImagesWithBlurred extends TImages {
   blurredDataUrl?: string;
+  width?: number;
+  height?: number;
 }
