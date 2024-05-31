@@ -26,7 +26,7 @@ export default function ImgContainer({
 }: ImgContainerProps) {
   const widthHeightRatio = height / width;
 
-  const galleryHeight = Math.ceil(300 * widthHeightRatio);
+  const galleryHeight = Math.ceil(250 * widthHeightRatio);
 
   const photoSpans = Math.ceil(galleryHeight / 12) + 1;
 

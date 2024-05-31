@@ -20,13 +20,9 @@ export default function Navbar() {
       <nav className="m-auto flex  w-full max-w-[1440px] items-center p-4">
         <div className="container flex items-center justify-between">
           <Link href="/">
-            <Image
-              src={LogoImage}
-              height={48}
-              width={48}
-              alt="logo unsplash horizons."
-              className="rounded-md mix-blend-multiply"
-            />
+            <h1 className="text-3xl font-bold text-primary xl:text-5xl">
+              Sunsets🌅
+            </h1>
           </Link>
         </div>
 
