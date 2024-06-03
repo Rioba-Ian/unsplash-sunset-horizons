@@ -34,7 +34,7 @@ export default function ImgContainer({
         src={image_url}
         fill={true}
         alt={title}
-        // loading="lazy"
+        loading="lazy"
         // loader={customLoader}
         placeholder="blur"
         blurDataURL={blurredDataUrl}
