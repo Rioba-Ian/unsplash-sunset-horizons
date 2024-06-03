@@ -23,40 +23,14 @@ async function getBase64(url: string) {
 export default async function addBlurredDataUrls(
   images: ImagesWithBlurred[],
 ): Promise<ImagesWithBlurred[]> {
-  // const base64Promises = images.map((image) => getBase64(image.image_url));
+  const base64Promises = images.map((image) => getBase64(image.image_url));
 
-  // const base64Res = await Promise.all(base64Promises);
+  const base64Res = await Promise.all(base64Promises);
 
-  // const photosWithBlur: ImagesWithBlurred[] = images.map((image, i) => {
-  //   image.blurredDataUrl = base64Res[i];
-  //   return image;
-  // });
-
-  // return photosWithBlur;
-
-  const imagePromises = images.map(async (image) => {
-    const [base64, dimensions] = await Promise.all([
-      getBase64(image.image_url),
-      getMetaData(image.image_url),
-    ]);
-
-    image.blurredDataUrl = base64;
-
-    image.width = dimensions.width;
-    image.height = dimensions.height;
-
+  const photosWithBlur: ImagesWithBlurred[] = images.map((image, i) => {
+    image.blurredDataUrl = base64Res[i];
     return image;
   });
 
-  const photosWithBlur = await Promise.all(imagePromises);
-
   return photosWithBlur;
 }
-
-export const getMetaData = async (
-  url: string,
-): Promise<{ width: number; height: number }> => {
-  const { width, height } = await sizeFromStream(url);
-
-  return { width, height };
-};
