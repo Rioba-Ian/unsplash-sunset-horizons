@@ -14,7 +14,7 @@ export const users = pgTable("users", {
 
 export const images = pgTable("images", {
   id: serial("id").primaryKey(),
-  title: text("text").notNull(),
+  title: text("title"),
   description: text("description"),
   image_url: text("image_url").notNull(),
   userId: integer("user_id")

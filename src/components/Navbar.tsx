@@ -28,6 +28,11 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-x-5">
+          <div className="flex items-center px-4">
+            <Link href="/new">
+              <ImagePlus size={32} />
+            </Link>
+          </div>
           {isSignedIn ? (
             <>
               <Button asChild>
@@ -37,11 +42,6 @@ export default function Navbar() {
             </>
           ) : (
             <div className="flex items-center justify-between px-2">
-              <div className="flex items-center px-4">
-                <Link href="/new">
-                  <ImagePlus size={32} />
-                </Link>
-              </div>
               <Button asChild>
                 <SignInButton />
               </Button>

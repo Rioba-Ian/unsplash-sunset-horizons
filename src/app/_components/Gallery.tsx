@@ -15,14 +15,14 @@ export default async function Gallery() {
 
   const photosWithBlur = await addBlurredDataUrls(imagesData);
 
-  // console.log(photosWithBlur);
+  console.log(photosWithBlur);
 
   return (
-    <section className="grid-cols-gallery my-3 grid auto-rows-[12px] gap-2 px-2">
+    <section className="my-3 grid auto-rows-[12px] grid-cols-gallery gap-2 px-2">
       {photosWithBlur.map((image) => (
         <ImgContainer
           image_url={image.image_url}
-          title={image.title}
+          title={image.title || ""}
           key={image.id}
           blurredDataUrl={image.blurredDataUrl}
           height={image.height}
