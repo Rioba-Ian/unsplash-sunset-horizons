@@ -20,15 +20,11 @@ export async function addImagesAction(formData: FormData) {
   const photoLabel = formData.get("label") as string;
   const photoUrl = formData.get("url") as string;
 
-  console.log(photoLabel, photoUrl, user);
-
   const getUserIdFromClerkId = await prisma.user.findFirst({
     where: {
       clerkId: user.userId,
     },
   });
-
-  console.log(getUserIdFromClerkId);
 
   if (!getUserIdFromClerkId) {
     throw new Error("User not found");
@@ -42,8 +38,6 @@ export async function addImagesAction(formData: FormData) {
       userId: getUserIdFromClerkId.id,
     },
   });
-
-  //   console.log(imageCreated);
 
   revalidatePath("/");
   redirect("/");

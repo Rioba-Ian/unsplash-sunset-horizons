@@ -22,15 +22,13 @@ export default function ImgContainer({
 }: ImgContainerProps) {
   const widthHeightRatio = height / width;
 
-  const galleryHeight = Math.ceil(280 * widthHeightRatio);
+  const galleryHeight = Math.ceil(300 * widthHeightRatio);
 
   const photoSpans = Math.ceil(galleryHeight / 10) + 1;
 
-  console.log(galleryHeight);
-
   return (
     <div
-      className="w-[280px] justify-self-center"
+      className="w-[300px] justify-self-center"
       style={{ gridRow: `span ${photoSpans}` }}
     >
       <Link
@@ -42,7 +40,7 @@ export default function ImgContainer({
           <Image
             src={image_url}
             alt={title}
-            width={280}
+            width={300}
             height={galleryHeight}
             sizes="280px"
             placeholder="blur"

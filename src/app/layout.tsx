@@ -23,7 +23,7 @@ export default function RootLayout({
           <Navbar />
           <div
             id="body-container"
-            className="m-auto my-4 min-h-screen w-4/5 max-w-[1440px] bg-background text-accent-foreground"
+            className="m-auto my-4 min-h-screen w-4/5 max-w-[1280px] bg-background text-accent-foreground"
           >
             {children}
           </div>

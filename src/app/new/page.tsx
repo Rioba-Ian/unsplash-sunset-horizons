@@ -1,17 +1,13 @@
 import FormSubmitButton from "@/components/FormSubmitButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
-import { z } from "zod";
 import { addImagesAction } from "./action";
-import { useAuth } from "@clerk/nextjs";
 
 export default async function Page() {
   const user = await auth();
-
-  console.log(user);
 
   if (!user) {
     redirect("/sigin?redirectTo=%2Fnew");
