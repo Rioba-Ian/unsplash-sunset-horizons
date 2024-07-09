@@ -1,4 +1,3 @@
-import { selectImagesSchema } from "@/db/schema";
 import { z } from "zod";
 
 export interface User {
@@ -17,7 +16,15 @@ export interface CreateUser {
   avatar_url?: string;
 }
 
-export type TImages = z.infer<typeof selectImagesSchema>;
+export type TImages = {
+  id: string;
+  title: string | null;
+  description: string | null;
+  image_url: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export interface ImagesWithBlurred extends TImages {
   blurredDataUrl?: string;
