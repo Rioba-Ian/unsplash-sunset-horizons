@@ -22,13 +22,13 @@ export default function ImgContainer({
 }: ImgContainerProps) {
   const widthHeightRatio = height / width;
 
-  const galleryHeight = Math.ceil(300 * widthHeightRatio);
+  const galleryHeight = Math.ceil(360 * widthHeightRatio);
 
   const photoSpans = Math.ceil(galleryHeight / 10) + 1;
 
   return (
     <div
-      className="w-[300px] justify-self-center"
+      className="relative w-[360px] justify-self-center"
       style={{ gridRow: `span ${photoSpans}` }}
     >
       <Link
@@ -40,35 +40,18 @@ export default function ImgContainer({
           <Image
             src={image_url}
             alt={title}
-            width={300}
+            width={360}
             height={galleryHeight}
-            sizes="280px"
+            sizes="360px"
             placeholder="blur"
             blurDataURL={blurredDataUrl}
             className="group-hover:opacity-75"
           />
+          <p className="invisible absolute inset-2  text-lg text-white group-hover:visible">
+            {title}
+          </p>
         </div>
       </Link>
     </div>
   );
 }
-
-/*
-
-<div
-      className="group relative w-[250px] justify-self-center overflow-hidden rounded-xl bg-gray-200"
-      style={{ gridRow: `span ${photoSpans}` }}
-    >
-      <Image
-        src={image_url}
-        alt={title}
-        loading="lazy"
-        width={250}
-        height={galleryHeight}
-        placeholder="blur"
-        blurDataURL={blurredDataUrl}
-        sizes="250px"
-        className="object-cover group-hover:opacity-75"
-      />
-    </div>
-*/

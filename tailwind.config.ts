@@ -60,6 +60,7 @@ const config = {
       },
       gridTemplateColumns: {
         gallery: "repeat(auto-fit, minmax(280px, 1fr))",
+        "gallery-md": "repeat(3, 1fr)",
       },
       keyframes: {
         "accordion-down": {
