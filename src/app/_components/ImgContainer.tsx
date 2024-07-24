@@ -1,24 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { Button } from "@/components/ui/button";
 // import customLoader from "@/lib/imageloader";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type ImgContainerProps = {
+  id: string;
   image_url: string;
   title: string;
   blurredDataUrl?: string;
   height?: number;
   width?: number;
+  displayDeleteButton?: boolean;
 };
 
 export default function ImgContainer({
+  id,
   image_url,
   title,
   blurredDataUrl,
   width = 1,
   height = 1,
+  displayDeleteButton,
 }: ImgContainerProps) {
   const widthHeightRatio = height / width;
 
@@ -50,6 +55,14 @@ export default function ImgContainer({
           <p className="invisible absolute inset-2  text-lg text-white group-hover:visible">
             {title}
           </p>
+          {displayDeleteButton && (
+            <Button
+              variant={"ghost"}
+              className="border-1 invisible absolute right-2 top-2 rounded-2xl border-slate-200 text-red-500 group-hover:visible"
+            >
+              Delete
+            </Button>
+          )}
         </div>
       </Link>
     </div>
