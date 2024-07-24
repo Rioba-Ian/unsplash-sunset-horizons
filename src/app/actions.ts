@@ -1,8 +1,10 @@
+"use server";
 import { db } from "@/db/db";
 import { images, users } from "@/db/schema";
 import prisma from "@/lib/prisma";
 import { CreateUser } from "@/types";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 export const getImagesData = async () => {
   const data = await prisma.image.findMany();
@@ -42,3 +44,22 @@ export const getUserData = async (clerkId: string) => {
 
   return user;
 };
+
+export const deleteImageByUser = async (imageId: string) => {
+  if (!imageId) {
+    return;
+  }
+
+  await prisma.image.delete({
+    where: {
+      id: imageId,
+    },
+  });
+
+  await delay(1000);
+
+  revalidatePath("/");
+};
+
+export const delay = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));

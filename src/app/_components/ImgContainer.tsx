@@ -14,7 +14,9 @@ import {
 // import customLoader from "@/lib/imageloader";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { deleteImageByUser } from "../actions";
+import { LoaderCircle } from "lucide-react";
 
 type ImgContainerProps = {
   id: string;
@@ -38,6 +40,9 @@ export default function ImgContainer({
   const widthHeightRatio = height / width;
   const galleryHeight = Math.ceil(360 * widthHeightRatio);
   const photoSpans = Math.ceil(galleryHeight / 10) + 1;
+
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div
@@ -66,7 +71,7 @@ export default function ImgContainer({
         </div>
       </Link>
       {displayDeleteButton && (
-        <Dialog>
+        <Dialog onOpenChange={setOpen} open={open}>
           <DialogTrigger>
             <Button
               variant={"ghost"}
@@ -83,8 +88,22 @@ export default function ImgContainer({
               </DialogDescription>
 
               <DialogFooter>
-                <div className="ml-auto mt-4 flex gap-2 self-end">
-                  <Button variant={"destructive"}>Yes, Delete</Button>
+                <div className="ml-auto mt-4 flex min-w-16 gap-2 self-end">
+                  <Button
+                    variant={"destructive"}
+                    onClick={async () => {
+                      setIsDeleting(true);
+                      await deleteImageByUser(id);
+                      setOpen(false);
+                      setIsDeleting(false);
+                    }}
+                  >
+                    {isDeleting ? (
+                      <LoaderCircle className="animate-spin" />
+                    ) : (
+                      "Yes, Delete"
+                    )}
+                  </Button>
                   <DialogClose asChild>
                     <Button className="" variant={"secondary"}>
                       Cancel
