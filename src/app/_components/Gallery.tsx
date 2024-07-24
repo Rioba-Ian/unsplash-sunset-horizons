@@ -23,10 +23,10 @@ export default async function Gallery() {
 
   return (
     <section
-      className="my-3 grid grid-cols-gallery  gap-4 xl:grid-cols-gallery-md"
+      className="my-3"
       style={{
-        gridAutoFlow: "rows",
-        gridAutoRows: "1fr",
+        columnCount: 3,
+        columnGap: "1rem",
       }}
     >
       {photosWithBlur.map((image) => (
